@@ -1,0 +1,8 @@
+/shelf/
+/workspace.xml
+/node_modules
+/README.md
+/dist
+/httpRequests/
+/env/.env.production
+/env/.env.development
