@@ -1,15 +1,14 @@
 import {IProduct} from "./products";
 import {model, Schema} from "mongoose";
+import {IUser} from "./users";
 
 export interface IOrder {
-    id: string;
     userId: string;
     products: IProduct[];
     totalPrice: number;
 }
 
 const orderSchema = new Schema<IOrder>({
-    id: { type: String },
     userId: { type: String },
     products: [{
         type: Schema.Types.ObjectId,
@@ -21,7 +20,7 @@ const orderSchema = new Schema<IOrder>({
 // noinspection TypeScriptValidateTypes
 export const Order = model<IOrder>('Orders', orderSchema);
 
-export type Checkout = IOrder & {
-    email: string,
-    name: string
+export type Checkout = {
+    user: IUser,
+    order: IOrder
 }

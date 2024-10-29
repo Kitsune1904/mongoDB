@@ -1,19 +1,17 @@
-import {IProduct, Product} from "../../models/products";
+import {IProduct} from "../../models/products";
 import {products} from "../../repository/storage";
+import {insertProduct} from "../../repository/products.repo";
 
 export async function importPredefined () :Promise<void> {
     const prod: IProduct[] = [...products];
     for(let i = 0; i < products.length; i++){
-        const product = new Product({
-            id: prod[i].id,
-            title: prod[i].title,
-            description: prod[i].description,
-            price: prod[i].price,
-        })
-        try {
-            await product.save()
-        } catch (err){
-
+        try{
+            await insertProduct({
+                title: prod[i].title,
+                description: prod[i].description,
+                price: prod[i].price,
+            })
         }
+        catch (err){}
     }
 }

@@ -1,6 +1,6 @@
 import {completeOrder, createOrCompleteCart, deleteProductFromCart} from "../services/cart/cart.services";
 import {getProduct} from "../services/products/products.services";
-import { Response } from 'express';
+import {NextFunction, Response} from 'express';
 import {CustomRequest, ICart} from "../models/models";
 import {IProduct} from "../models/products";
 import {Checkout} from "../models/orders";
@@ -12,9 +12,8 @@ import {Checkout} from "../models/orders";
  * @param res
  */
 export const addProduct = async (req: CustomRequest, res: Response): Promise<void> => {
-    const product: IProduct = await getProduct(req)
-    const userId: string|undefined = req.userId;
-    const cart: ICart = await createOrCompleteCart(product, userId)
+    const product: IProduct = await getProduct(req.params.id)
+    const cart: ICart = await createOrCompleteCart(product, req.user?.id)
     res.status(201).json(cart);
 }
 /**
@@ -24,9 +23,7 @@ export const addProduct = async (req: CustomRequest, res: Response): Promise<voi
  * @param res
  */
 export const deleteProduct = async (req: CustomRequest, res: Response): Promise<void> => {
-    const prodId: number = Number(req.params.id);
-    const userId: string = req.userId!;
-    const cart: ICart = await deleteProductFromCart(prodId, userId)
+    const cart: ICart = await deleteProductFromCart(req.params.id, req.user?.id)
     res.status(200).json(cart);
 }
 
@@ -35,9 +32,14 @@ export const deleteProduct = async (req: CustomRequest, res: Response): Promise<
  * Response by user order info
  * @param req
  * @param res
+ * @param next
  */
-export const getOrder = async (req: CustomRequest, res: Response): Promise<void> => {
-    const userId: string = req.userId!;
-    const order: Checkout = await completeOrder(userId)
-    res.status(201).json(order)
+export const getOrder = async (req: CustomRequest, res: Response, next: NextFunction): Promise<void> => {
+    try{
+        const order: Checkout = await completeOrder(req.user!.id!)
+        res.status(201).json(order)
+    }
+    catch (e){
+        next(e);
+    }
 }

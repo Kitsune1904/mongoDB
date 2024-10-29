@@ -1,7 +1,8 @@
 import {HydratedDocument, Model, model, Schema} from 'mongoose';
+import * as mongoose from "mongoose";
 
 export interface IProduct {
-    id: number;
+    _id?: mongoose.Types.ObjectId;
     title: string;
     description: string;
     category?: string
@@ -9,18 +10,12 @@ export interface IProduct {
 }
 
 const productSchema = new Schema<IProduct>({
-    id: { type: Number },
     category: { type: String },
     title: {
         type: String,
-        required: [true, '402||Product title required'],
+        required: [true, '400||Product title required'],
+        maxlength: [70, '400||Too long title'],
         validate: [
-            {
-                validator: function (value: string): boolean {
-                    return value.length <= 70
-                },
-                message: '402||Too long title'
-            },
             {
                 validator: async function(title: string): Promise<boolean> {
                     const model = this.constructor as Model<any>;
@@ -33,17 +28,17 @@ const productSchema = new Schema<IProduct>({
     },
     description: {
         type: String,
-        required: [true, '402||Product description required'],
+        required: [true, '400||Product description required'],
         validate: {
             validator: function (value: string): boolean {
                 return value.length <= 256
             },
-            message: '402||Too long description'
+            message: '400||Too long description'
         }
     },
     price: {
         type: Number,
-        required: [true, '402||Product price required'],
+        required: [true, '400||Product price required'],
     }
 })
 

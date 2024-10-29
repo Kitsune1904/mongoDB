@@ -1,9 +1,8 @@
 import {ApiError} from "../../middleware/ErrorApi";
-import crypto from "crypto";
 import {TProductCSV} from "../../models/models";
-import { Request } from 'express';
 import {IProduct, Product, ProductDoc} from "../../models/products";
 import * as mongoose from "mongoose";
+import {insertProduct} from "../../repository/products.repo";
 
 
 /**
@@ -21,32 +20,20 @@ export const createNewProduct = (body: TProductCSV) : TProductCSV => {
 
 export const addProductInStorage = async (body: TProductCSV): Promise<TProductCSV> => {
     const product: TProductCSV = createNewProduct(body)
-    const id: number = product.id ?? crypto.randomInt(1000000000);
-    const newProd = new Product ({
-        id: id,
+    await insertProduct({
         title: product.name,
         description: product.description,
         category: product.category,
         price: product.price
     });
-    try {
-        await newProd.save();
-    } catch (err) {
-        if(err instanceof mongoose.Error){
-            throw new ApiError(402, JSON.stringify(err))
-        } else {
-            throw new ApiError(500, 'Unknown')
-        }
-    }
     return product
 }
 
-export const getProduct = async (req: Request): Promise<IProduct> => {
-    const productId: number = Number(req.params.id);
-    if (isNaN(productId)) {
+export const getProduct = async (productId: string): Promise<IProduct> => {
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
         throw new ApiError(400, 'Wrong id format')
     }
-    const currentProduct = (await Product.findOne({id: productId}).exec()) as ProductDoc;
+    const currentProduct = (await Product.findOne({_id: productId}).exec()) as ProductDoc;
     if (!currentProduct) {
         throw new ApiError(404, 'Product not found')
     }

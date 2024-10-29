@@ -2,12 +2,11 @@ import {ApiError} from "../middleware/ErrorApi";
 import {uploadEvents} from "../middleware/eventEmmiter";
 import stream from "stream";
 import csv from "csv-parser";
-import crypto from "crypto";
 import {addProductInStorage, getAllProductsReal, getProduct} from "../services/products/products.services";
-import { Response } from 'express';
+import {NextFunction, Response} from 'express';
 import {CustomRequest, TProductCSV} from "../models/models";
 import {PassThrough} from "node:stream";
-import {Product} from "../models/products";
+import {insertProducts} from "../repository/products.repo";
 
 
 /**
@@ -26,7 +25,8 @@ export const getAllProducts = async (req: CustomRequest, res: Response): Promise
  * @param res
  */
 export const getProductById = async (req: CustomRequest, res: Response): Promise<void> => {
-    res.status(200).json(await getProduct(req))
+    // res.status(200).json(await getProduct(Number(req.params.id)))
+    res.status(200).json(await getProduct(req.params.id))
 }
 
 /**
@@ -34,14 +34,20 @@ export const getProductById = async (req: CustomRequest, res: Response): Promise
  * Response by new added product
  * @param req
  * @param res
+ * @param next
  * @return {Promise<void>}
  */
-export const addProduct = async (req: CustomRequest, res: Response): Promise<void> => {
-    const product: TProductCSV = await addProductInStorage(req.body)
-    res.status(200).json({
-        message: 'Product added',
-        data: product
-    })
+export const addProduct = async (req: CustomRequest, res: Response, next: NextFunction): Promise<void> => {
+    try{
+        const product: TProductCSV = await addProductInStorage(req.body)
+        res.status(200).json({
+            message: 'Product added',
+            data: product
+        })
+    }
+    catch (e){
+        next(e);
+    }
 }
 
 /**
@@ -64,27 +70,13 @@ export const handleProductsFileImport = async (req: CustomRequest, res: Response
     readableStream
         .pipe(csv())
         .on('data', (data) => products.push({
-            id: crypto.randomInt(1000000000),
             name: data.name,
             description: data.description,
             category: data.category,
             price: parseFloat(data.price)
         }))
         .on('end', async (): Promise<void> => {
-            for(const proto of products){
-                const product = new Product({
-                    id: proto.id,
-                    title: proto.name,
-                    category: proto.category,
-                    description: proto.description,
-                    price: proto.price,
-                })
-                try {
-                    await product.save()
-                } catch (err){
-
-                }
-            }
+            await insertProducts(products);
             uploadEvents.emit('fileUploadEnd');
             res.status(200).json({ message: 'File successfully uploaded and processed' });
         })

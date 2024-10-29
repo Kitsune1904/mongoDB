@@ -1,9 +1,15 @@
 import {model, Schema, Model, HydratedDocument} from 'mongoose';
 import {IProduct} from "./products";
+import * as mongoose from "mongoose";
+
+export enum Role {
+    ADMIN = "ADMIN",
+    CUSTOMER = "CUSTOMER"
+}
 
 export interface IUser {
-    role: "ADMIN" | "CUSTOMER";
-    id: string,
+    role: Role;
+    _id?: mongoose.Types.ObjectId;
     name: string;
     email: string;
     password: string;
@@ -11,40 +17,31 @@ export interface IUser {
 }
 
 const userSchema = new Schema<IUser>({
-    id: {type: String},
     name: {
         type: String,
-        required: [true, '402||User name required'],
-        validate: new RegExp(/^[a-zA-Z0-9 ]{3,70}$/)
+        required: [true, '400||User name required'],
+        minlength: [3, '400||Too short name'],
+        maxlength: [70, '400||Too long name']
     },
     email: {
         type: String,
-        required: [true, '402||User email required'],
-        validate: [
-            {
-                validator: function (email: string): boolean {
-                    return new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-z]{2,5}$/).test(email)
-                },
-                message: '402||Malformed email'
+        required: [true, '400||User email required'],
+        match: [new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-z]{2,5}$/), '400||Malformed email'],
+        validate: {
+            validator: async function(email: string): Promise<boolean> {
+                const model = this.constructor as Model<any>;
+                const user = await model.findOne({email}).exec();
+                if(!user)
+                    return true;
+                return user._id.equals(this._id);
             },
-            {
-                validator: async function(email: string): Promise<boolean> {
-                    const model = this.constructor as Model<any>;
-                    const user = await model.findOne({email}).exec();
-                    if(!user)
-                        return true;
-                    return this.id == user.id;
-                },
-                message: '409||Not unique!'
-            }
-        ]
+            message: '409||Not unique!'
+        }
     },
     role: {
         type: String,
-        required: [true, '402||Role required'],
-        validate: function (role: string): boolean {
-            return role == 'ADMIN' || role == 'CUSTOMER'
-        }
+        required: [true, '400||Role required'],
+        enum: { values: ['ADMIN', 'CUSTOMER'], message: '400||Wrong role' },
     },
     password: { type: String, required: true },
     cart: [{ type: Schema.Types.ObjectId, ref: 'Products' }]

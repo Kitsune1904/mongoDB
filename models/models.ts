@@ -1,5 +1,6 @@
 import { Request } from 'express';
 import {IProduct} from "./products";
+import {Role} from "./users";
 
 export interface ICart {
     id: string;
@@ -16,11 +17,11 @@ export type TProductCSV = {
 }
 
 export interface IToken {
-    role: string
+    role: Role,
+    id?: string
 }
 
 export type CustomRequest = Request & {
-    userId?: string;
     user?: IToken;
 };
 

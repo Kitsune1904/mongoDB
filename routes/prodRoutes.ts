@@ -6,15 +6,12 @@ import {
     getProductById,
     handleProductsFileImport
 } from "../controllers/products.controllers";
-import {checkUserId} from "../middleware/checkId";
 import {adminOnly} from "../middleware/checkRole";
 
 const storage: StorageEngine = multer.memoryStorage();
 const upload: Multer = multer({ storage });
 
 const prodRouter: Router = Router();
-
-prodRouter.use(checkUserId)
 
 prodRouter.get('/', getAllProducts);
 

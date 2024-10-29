@@ -1,21 +1,21 @@
 import bcrypt from "bcrypt";
 import {ADMIN_EMAIL, ADMIN_NAME, ADMIN_PASSWORD} from "../../constants";
-import {IUser, User} from "../../models/users";
+import {createUser, findUserByEmail} from "../../repository/users.repo";
+import {Role} from "../../models/users";
 
 export const generateAdmin = async (): Promise<void> => {
-    const admin = await User.findOne({email: ADMIN_EMAIL}).exec() as IUser;
+    const admin = await findUserByEmail(ADMIN_EMAIL);
     if (!admin) {
         const adminName: string = ADMIN_NAME;
         const adminEmail: string = ADMIN_EMAIL;
         const adminPassword: string = ADMIN_PASSWORD;
-
         if (adminName && adminEmail && adminPassword) {
             bcrypt.hash(adminPassword, 12).then((hashedPassword: string): void => {
-                User.create({
+                createUser({
                     name: adminName,
                     email: adminEmail,
                     password: hashedPassword,
-                    role: "ADMIN",
+                    role: Role.ADMIN,
                     cart: []
                 }).then(() => console.log('Admin created'))
             });
