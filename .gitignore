@@ -6,3 +6,5 @@
 /httpRequests/
 /env/.env.production
 /env/.env.development
+docker-compose.yml
+Dockerfile

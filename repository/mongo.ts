@@ -1,6 +1,7 @@
 import {connect} from "mongoose";
 import {MONGO} from "../constants";
 
+
 const connectToDB = async () => {
     try {
         await connect(MONGO, {
@@ -11,4 +12,7 @@ const connectToDB = async () => {
         console.error(error);
     }
 }
+
+
+
 export default connectToDB

@@ -5,6 +5,7 @@
   "main": "index.ts",
   "type": "commonjs",
   "scripts": {
+    "local": "cross-env NODE_ENV=local node dist/index.js",
     "dev": "cross-env NODE_ENV=development node dist/index.js",
     "prod": "cross-env NODE_ENV=production node dist/index.js"
   },
