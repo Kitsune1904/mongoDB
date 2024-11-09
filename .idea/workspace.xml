@@ -6,31 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ae7a532b-36e6-4e09-9418-e2f30afedd93" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/cart.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/cart.controllers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/productsUpload.dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/productsUpload.dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/orders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/orders.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/repository/storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/admin/createAdmin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin/createAdmin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/products/products.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/products/products.services.ts" afterDir="false" />
-    </list>
-    <list id="72596b87-80cc-4102-8b60-3b26afdca466" name="Changes by damir" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/cart.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/cart.controllers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/products.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/products.controllers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/checkId.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/checkRole.ts" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/checkRole.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/orders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/orders.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/cartRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/cartRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/prodRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/prodRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/admin/admin.products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin/admin.products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/admin/createAdmin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/admin/createAdmin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/cart/cart.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/cart/cart.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/products/products.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/products/products.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user/user.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/user/user.services.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,67 +21,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/models/products.ts">
-      <ranges>
-        <range start1="1" end1="1" start2="1" end2="2" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="3" end1="4" start2="4" end2="5" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="11" end1="12" start2="12" end2="12" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="15" end1="16" start2="15" end2="17" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="18" end1="24" start2="19" end2="19" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="35" end1="36" start2="30" end2="31" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="40" end1="41" start2="35" end2="36" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="45" end1="46" start2="40" end2="41" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/models/users.ts">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="8" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="4" end1="6" start2="10" end2="12" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="13" end1="14" start2="19" end2="19" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="16" end1="18" start2="21" end2="24" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="21" end1="40" start2="27" end2="39" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="43" end1="47" start2="42" end2="44" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/controllers/cart.controllers.ts">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="3" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="14" end1="17" start2="14" end2="16" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="26" end1="29" start2="25" end2="26" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="37" end1="37" start2="34" end2="35" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="38" end1="42" start2="36" end2="44" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/models/orders.ts">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="4" end1="5" start2="5" end2="5" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="11" end1="12" start2="11" end2="11" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="23" end1="26" start2="22" end2="25" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/services/admin/createAdmin.ts">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="4" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="5" end1="6" start2="6" end2="7" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="10" end1="11" start2="11" end2="11" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="13" end1="14" start2="13" end2="14" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="17" end1="18" start2="17" end2="18" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/services/products/products.services.ts">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="1" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="3" end1="4" start2="2" end2="2" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="6" end1="6" start2="4" end2="5" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="23" end1="26" start2="22" end2="23" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="31" end1="40" start2="28" end2="28" changelist="72596b87-80cc-4102-8b60-3b26afdca466" />
-        <range start1="43" end1="46" start2="31" end2="33" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="48" end1="49" start2="35" end2="36" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -165,7 +79,8 @@
       <workItem from="1729934034867" duration="285000" />
       <workItem from="1729934331279" duration="30334000" />
       <workItem from="1730039809802" duration="12258000" />
-      <workItem from="1730212909533" duration="13735000" />
+      <workItem from="1730212909533" duration="14525000" />
+      <workItem from="1730230786798" duration="571000" />
     </task>
     <servers />
   </component>
