@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ae7a532b-36e6-4e09-9418-e2f30afedd93" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/env/.env.example" afterDir="false" />
     </list>
     <list id="66525cf0-64d4-476c-aeb8-25400e2e9f9b" name="Changes by damir" comment="">
@@ -27,15 +26,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/constants.ts">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="0" changelist="66525cf0-64d4-476c-aeb8-25400e2e9f9b" />
-        <range start1="3" end1="5" start2="2" end2="6" changelist="ae7a532b-36e6-4e09-9418-e2f30afedd93" />
-        <range start1="8" end1="10" start2="9" end2="9" changelist="66525cf0-64d4-476c-aeb8-25400e2e9f9b" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
